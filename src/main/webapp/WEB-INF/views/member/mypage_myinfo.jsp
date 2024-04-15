@@ -35,7 +35,7 @@
         display: none;
     }
     #addr_update_btn{
-        display: none;
+        /* display: none; */
 
     }
 
@@ -189,7 +189,7 @@
 
     function addr_insert(add_form) { // insert 버튼
         
-        console.log("여기야 : " + add_form);
+        //console.log("여기야 : " + add_form);
         //var form = document.getElementById(add_form);
         
         let add_zipcode      = add_form.add_zipcode.value;
@@ -217,7 +217,7 @@
 
 
         if (add_form) {
-            console.log("여기야2"+add_form);
+            // console.log("여기야2"+add_form);
             if(confirm("주소를 등록하시겠습니까?")==false) return;
             
             //location.href = 'addr_insert.do';
@@ -230,8 +230,11 @@
     }
 
     function update_addr_form(addr_idx) { //addr_idx 주소 수정 폼 띄우기
-        var addr_update_btn = document.getElementById('addr_update_btn');
-        // var addrUpdateBtn = document.getElementById('addr_update_btn'+ addr_idx);
+        //console.log("수정버튼 클릭!"+ addr_idx);
+
+        // var addr_update_btn = document.getElementById('addr_update_btn');
+        // var addr_update_btn = document.getElementById('addr_update_btn_${myinfo_list.addr_idx}');
+        var addr_update_btn = document.getElementById('addr_update_btn_'+ addr_idx);
 
         if (addr_update_btn.style.display === 'none') {
             addr_update_btn.style.display = 'table-row';
@@ -256,8 +259,9 @@
 
     function addr_update(update_form) {
 
-        console.log("update_form 들어옴!!");
-        console.log("여기야3 들어옴????"+update_form);
+        // console.log("update_form 들어옴!!");
+        console.log("수정하기 버튼 들어옴????"+update_form);
+        console.log("addr_idx 값>???"+update_form.addrIdx);
         //var form = document.getElementById(add_form);
         
         let update_zipcode      = update_form.update_zipcode.value;
@@ -285,10 +289,10 @@
 
 
         if (update_form) {
-            console.log("여기야4!!!!"+update_form);
+            // console.log("여기야4!!!!"+update_form);
             if(confirm("주소를 수정하시겠습니까?")==false) return;
             
-            location.href = 'addr_update.do';
+            update_form.action = 'addr_update.do';
             update_form.submit(); //전송	
 
         } else {
@@ -474,22 +478,24 @@
                         <td>${myinfo_list.no}
                             <!-- <input type="hidden" id="addr_idx" value="${ myinfo_list.addr_idx }"> -->
                         </td> <!-- 번호를 순서대로 표시 -->
-                        <td>테스트</td> 
+                        <td>${myinfo_list.zipcode}</td>
                         <td>${myinfo_list.addr_street}</td>
                         <td>${myinfo_list.addr_detail}</td>
                         <td>
-                            <input class="button alt" id="update_addr_form" type="button" value="수정" onclick="update_addr_form('${myinfo_list.addr_idx}');">
+                            <input class="button alt" type="button" value="수정" onclick="update_addr_form('${myinfo_list.addr_idx}');">
                             <input class="button alt" type="button" value="삭제" onclick="deleteAddress('${myinfo_list.addr_idx}', '${myinfo_list.no}');">
                         </td>
 
                     </tr>
-                    <tr id="addr_update_btn" val>
+                    <!-- <tr id="addr_update_btn" > -->
+                    <tr id="addr_update_btn_${myinfo_list.addr_idx}" style="display: none;">
+
                         <th colspan="2">
                             <h4> 주소 수정 :</h4>
                         </th>
                         <form id="addr_update">
                         <td colspan="3">
-                            <input type="hidden" id="addr_idx" value="${ myinfo_list.addr_idx }">
+                            <input type="hidden" id="addr_idx" name="addr_idx" value="${ myinfo_list.addr_idx }">
                             <div style="display: inline-flex; align-items: center; margin-bottom: 10px;">
                                 <input class="form-control" type="text" name="zipcode" id="update_zipcode" value="${ myinfo_list.zipcode }">
                                 &nbsp;&nbsp;&nbsp;&nbsp;

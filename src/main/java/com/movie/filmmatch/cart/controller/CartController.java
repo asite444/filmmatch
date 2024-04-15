@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.movie.filmmatch.cart.dao.CartDao;
 import com.movie.filmmatch.cart.service.CartService;
 import com.movie.filmmatch.cart.vo.CartVo;
+import com.movie.filmmatch.member.dao.MyInfoDao;
 import com.movie.filmmatch.member.vo.MemberVo;
+import com.movie.filmmatch.member.vo.MyInfoVo;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -25,6 +27,11 @@ public class CartController {
 
     @Autowired
     CartDao cart_dao;
+
+
+    
+    @Autowired
+	MyInfoDao myinfo_dao;
 
     /**
      * 카트 이동
@@ -127,12 +134,14 @@ public class CartController {
 
         }
 
-        List<CartVo> payment_list = cart_service.select_list(member.getMem_idx(),cart_idx);
 
+        List<CartVo> payment_list = cart_service.select_list(member.getMem_idx(),cart_idx);
+        List<MyInfoVo> myinfo_list = myinfo_dao.selectList(member.getMem_idx());
         // 결제 총 금액(배달비 제외)
         int total_amount_all=cart_service.select_list_total_amount_all(member.getMem_idx(),cart_idx);
         model.addAttribute("payment_list", payment_list);
         model.addAttribute("total_amount_all", total_amount_all);
+        model.addAttribute("myinfo_list", myinfo_list);
 
         return"/payment/payment_form";
     }

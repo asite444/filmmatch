@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.movie.filmmatch.admin.service.InventoryService;
 import com.movie.filmmatch.cart.service.CartService;
 import com.movie.filmmatch.cart.vo.CartVo;
+import com.movie.filmmatch.member.dao.MyInfoDao;
 import com.movie.filmmatch.member.vo.MemberVo;
 import com.movie.filmmatch.payment.service.PaymentService;
 import com.movie.filmmatch.payment.vo.PaymentVo;

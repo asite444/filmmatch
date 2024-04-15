@@ -7,7 +7,6 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.movie.filmmatch.goods.service.GoodsService;
 import com.movie.filmmatch.member.dao.MemberDao;
@@ -91,7 +90,6 @@ public class MyPageController{
 		
 		model.addAttribute("vo", vo);
 		model.addAttribute("myinfo", myinfo);
-		System.out.println(myinfo);
 		//request.
 		//System.out.println(list);
 
@@ -176,33 +174,21 @@ public class MyPageController{
 		// return "redirect:member/mypage_myinfo.do";
 	}
 	
-	/**
-	 * 주소수정폼띄우기
-	 * @param vo
-	 * @return
-	 */
-	@RequestMapping("addr_update_form.do")
-	public String addr_update_form(@RequestParam("addr_idx") int addr_idx,
-									MyInfoVo vo,
-									Model model) {
 
-		vo = myinfo_dao.selectOneAddr(addr_idx);
-
-		model.addAttribute("vo", vo);
-
-		return "member/mypage_myinfo_update";
-	}
 	/**
 	 * 주소수정
 	 * @param vo
 	 * @return
 	 */
 	@RequestMapping("addr_update.do")
-	public String addr_update(MyInfoVo vo) {
+	public String addr_update(MyInfoVo vo,
+								int addr_idx) {
+		
+		//System.out.println("수정컨트롤러 : " + vo);
 
 		myinfo_dao.update(vo);
 
-		return "member/mypage_myinfo";
+		return "redirect:mypage_myinfo.do";
 	}
 	
 	/**
