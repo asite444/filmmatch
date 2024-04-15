@@ -1,14 +1,14 @@
-package com.movie.filmmatch.dao.inventory;
+package com.movie.filmmatch.admin.dao.inventory;
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.movie.filmmatch.vo.InventoryVo;
+import com.movie.filmmatch.admin.vo.InventoryVo;
 
 
 @Mapper
-public interface Inventory_In_Dao {
+public interface Inventory_Out_Dao{
 
 	List<InventoryVo> selectList();
 	InventoryVo selectOneFromIdx(int idx);
@@ -18,7 +18,5 @@ public interface Inventory_In_Dao {
 	int insert(InventoryVo vo) throws Exception;
 	int update(InventoryVo vo) throws Exception;
 	int delete(int idx) throws Exception;
-	
-	
-	
+
 }

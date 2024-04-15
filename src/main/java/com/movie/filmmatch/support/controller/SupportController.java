@@ -10,14 +10,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.movie.filmmatch.dao.MemberDao;
+import com.movie.filmmatch.member.dao.MemberDao;
+import com.movie.filmmatch.member.vo.MemberVo;
 import com.movie.filmmatch.support.dao.CommentsDao;
 import com.movie.filmmatch.support.dao.ReviewerDao;
 import com.movie.filmmatch.support.dao.SupportDao;
 import com.movie.filmmatch.support.vo.CommentsVo;
 import com.movie.filmmatch.support.vo.ReviewerVo;
 import com.movie.filmmatch.support.vo.SupportVo;
-import com.movie.filmmatch.vo.MemberVo;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;

@@ -1,10 +1,10 @@
-package com.movie.filmmatch.dao.inventory;
+package com.movie.filmmatch.admin.dao.inventory;
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.movie.filmmatch.vo.InventoryVo;
+import com.movie.filmmatch.admin.vo.InventoryVo;
 
 @Mapper
 public interface Inventory_Remain_Dao{

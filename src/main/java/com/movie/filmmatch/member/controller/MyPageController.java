@@ -1,17 +1,19 @@
-package com.movie.filmmatch.controller;
+package com.movie.filmmatch.member.controller;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import com.movie.filmmatch.dao.MemberDao;
-import com.movie.filmmatch.dao.MyInfoDao;
 import com.movie.filmmatch.goods.service.GoodsService;
-import com.movie.filmmatch.vo.MemberVo;
-import com.movie.filmmatch.vo.MyInfoVo;
+import com.movie.filmmatch.member.dao.MemberDao;
+import com.movie.filmmatch.member.dao.MyInfoDao;
+import com.movie.filmmatch.member.vo.MemberVo;
+import com.movie.filmmatch.member.vo.MyInfoVo;
 
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServletRequest;
@@ -59,7 +61,7 @@ public class MyPageController{
 	}
 
 	/**
-	 * 나의정보 페이지 (회원정보&주소목록)
+	 * 나의정보 페이지 (회원정보&주소목록) 띄우기
 	 * @return
 	 */
 	@RequestMapping("/mypage_myinfo.do")
@@ -67,20 +69,30 @@ public class MyPageController{
 								Model model) {
 
 		MemberVo vo = (MemberVo) request.getSession().getAttribute("user");
-		System.out.println(vo);
+		// System.out.println(vo);
+
+			if (vo != null) {
+				// 사용자 정보가 존재하면 해당 정보의 mem_idx를 주소 정보에 설정
+				vo.setMem_idx(vo.getMem_idx());
+			} else {
+				// 세션에 사용자 정보가 없을 경우
+				return "redirect:/member/login_form.do";
+			}
 		
 		//회원정보의 주소 가져오기
-		List<MyInfoVo> list = myinfo_dao.selectList(vo.getMem_idx());				
-		System.out.println(list);
+		List<MyInfoVo> myinfo = myinfo_dao.selectList(vo.getMem_idx());				
+		//System.out.println(list);
 		
 
-		if (vo == null) {
-            return "redirect:../member/login_form.do?reason=session_timeout";
-            // session_timeout: 세션만료(로그아웃상태)
-		}
+			if (vo == null) {
+				return "redirect:../member/login_form.do?reason=session_timeout";
+				// session_timeout: 세션만료(로그아웃상태)
+			}
 		
-		request.setAttribute("vo", vo);
-		model.addAttribute("list", list);
+		model.addAttribute("vo", vo);
+		model.addAttribute("myinfo", myinfo);
+		System.out.println(myinfo);
+		//request.
 		//System.out.println(list);
 
 		return "member/mypage_myinfo";
@@ -111,23 +123,57 @@ public class MyPageController{
 		
         return "member/mypage_myinfo";
     }
-	
+
+
 	/**
-	 * 주소 등록 폼띄우기
+	 * 주소 등록 insert
 	 * @return
 	 */
-	@RequestMapping("mypage_myinfo_insert.do")
-	public String mypage_myinfo_insert(Model model) {
-		
-		// MemberVo vo = (MemberVo) request.getSession().getAttribute("user");
-		MyInfoVo vo = (MyInfoVo) request.getSession().getAttribute("addr_idx");
+	@RequestMapping("addr_insert.do")
+	public String addr_insert(	MyInfoVo vo,
+								Model model) {
+		//System.out.println("여기가 addr_insert 임");
+		//System.out.println(vo);
+		//System.out.println(model);
+		// 로그인 확인 세션
+		MemberVo user = (MemberVo) session.getAttribute("user");
+		if (user != null) {
+			// 사용자 정보가 존재하면 해당 정보의 mem_idx를 주소 정보에 설정
+			vo.setMem_idx(user.getMem_idx());
+		} else {
+			// 세션에 사용자 정보가 없을 경우
+			return "redirect:/member/login_form.do";
+		}
+	
+		try {
+			
+			myinfo_dao.insert(vo);
+			
+			// 마이페이지로 리다이렉트
+			return "redirect:mypage_myinfo.do";
+		} catch (DataIntegrityViolationException e) {
+			// 데이터베이스 제약 조건 위반이 발생한 경우
+			e.printStackTrace();
+			
+			// 오류 메시지 추가
+			model.addAttribute("error", "Address information is invalid");
+			
+			// 오류 페이지로 이동
+			return "error";
+		}
 
-		System.out.println(vo);
-		// System.out.println(vo1);
-		model.addAttribute("vo", vo);
+		// String mem_idx = (int) session.getAttribute("user");
+		// System.out.println(mem_idx);
+		
+		// myinfo_dao.insert(vo);
+		
+		// System.out.println(vo);
 		
 		
-		return "redirect:member/mypage_myinfo.do";
+		// model.addAttribute("user", mem_idx);
+		// model.addAttribute("vo", vo);
+		
+		// return "redirect:member/mypage_myinfo.do";
 	}
 	
 	/**
@@ -136,13 +182,13 @@ public class MyPageController{
 	 * @return
 	 */
 	@RequestMapping("addr_update_form.do")
-	public String addr_update_form(MyInfoVo vo,
+	public String addr_update_form(@RequestParam("addr_idx") int addr_idx,
+									MyInfoVo vo,
 									Model model) {
-		//회원정보의 주소 가져오기
-		List<MyInfoVo> list = myinfo_dao.selectList(vo.getMem_idx());				
-		//System.out.println(list);
 
-		model.addAttribute("list", list);
+		vo = myinfo_dao.selectOneAddr(addr_idx);
+
+		model.addAttribute("vo", vo);
 
 		return "member/mypage_myinfo_update";
 	}

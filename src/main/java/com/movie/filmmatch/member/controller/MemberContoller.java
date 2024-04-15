@@ -1,4 +1,4 @@
-package com.movie.filmmatch.controller;
+package com.movie.filmmatch.member.controller;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.movie.filmmatch.dao.MemberDao;
-import com.movie.filmmatch.service.EmailService;
-import com.movie.filmmatch.vo.MemberVo;
+import com.movie.filmmatch.member.dao.MemberDao;
+import com.movie.filmmatch.member.service.EmailService;
+import com.movie.filmmatch.member.vo.MemberVo;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;

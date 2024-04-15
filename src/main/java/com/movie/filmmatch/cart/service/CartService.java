@@ -28,9 +28,6 @@ public interface CartService {
     /** 관리자에 의해 삭제된 상품정보로 인한 카트정보 삭제처리 */
     public int cart_admin_delete_goods_idx_real(int mem_idx);
 
-    public int[] select_cart_goods_idx(int[] cart_idx);
-
-  
 
 
 

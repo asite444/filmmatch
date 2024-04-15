@@ -1,10 +1,10 @@
-package com.movie.filmmatch.dao;
+package com.movie.filmmatch.member.dao;
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.movie.filmmatch.vo.MemberVo;
+import com.movie.filmmatch.member.vo.MemberVo;
 @Mapper
 public interface MemberDao {
 	

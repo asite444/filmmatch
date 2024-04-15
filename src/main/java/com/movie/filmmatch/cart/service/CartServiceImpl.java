@@ -109,18 +109,6 @@ public class CartServiceImpl implements CartService {
        return res;
     }
 
-    // 굿즈번호구하기
-    @Override
-    public int[] select_cart_goods_idx(int[] cart_idx){
-
-        int[] goods_idx=new int[cart_idx.length];
-        for(int i=0;i<cart_idx.length;i++){
-        goods_idx[i]=cart_dao.select_cart_goods_idx(cart_idx[i]);
-        }
-
-        return goods_idx;
-      }
-
    
    
 

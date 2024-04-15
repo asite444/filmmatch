@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.movie.filmmatch.cart.dao.CartDao;
 import com.movie.filmmatch.cart.service.CartService;
 import com.movie.filmmatch.cart.vo.CartVo;
-import com.movie.filmmatch.vo.MemberVo;
+import com.movie.filmmatch.member.vo.MemberVo;
 
 import jakarta.servlet.http.HttpServletRequest;
 

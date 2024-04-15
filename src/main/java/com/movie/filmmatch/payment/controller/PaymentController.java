@@ -21,13 +21,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.movie.filmmatch.admin.service.InventoryService;
 import com.movie.filmmatch.cart.service.CartService;
 import com.movie.filmmatch.cart.vo.CartVo;
+import com.movie.filmmatch.member.vo.MemberVo;
 import com.movie.filmmatch.payment.service.PaymentService;
 import com.movie.filmmatch.payment.vo.PaymentVo;
 import com.movie.filmmatch.payment.vo.TossPayVo;
-import com.movie.filmmatch.service.InventoryService;
-import com.movie.filmmatch.vo.MemberVo;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -138,15 +138,6 @@ public class PaymentController {
 
         //결제 에러 발생하지 않으면 데이터 저장
         if(!isError){
-
-           int[]goods_idx= cart_service.select_cart_goods_idx(cart_idx);  
-           
-
-
-        
-        
-
-
         TossPayVo tosspayvo = payment_service.convertJsonToPaymentVo(jsonObject.toString());
         //배송비 추가
         tosspayvo.setDeliveryFee(deliveryFee);

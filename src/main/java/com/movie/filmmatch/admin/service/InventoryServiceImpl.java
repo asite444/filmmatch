@@ -1,4 +1,4 @@
-package com.movie.filmmatch.service;
+package com.movie.filmmatch.admin.service;
 
 import java.util.HashMap;
 import java.util.List;
@@ -8,10 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.movie.filmmatch.dao.inventory.Inventory_In_Dao;
-import com.movie.filmmatch.dao.inventory.Inventory_Out_Dao;
-import com.movie.filmmatch.dao.inventory.Inventory_Remain_Dao;
-import com.movie.filmmatch.vo.InventoryVo;
+import com.movie.filmmatch.admin.dao.inventory.Inventory_In_Dao;
+import com.movie.filmmatch.admin.dao.inventory.Inventory_Out_Dao;
+import com.movie.filmmatch.admin.dao.inventory.Inventory_Remain_Dao;
+import com.movie.filmmatch.admin.vo.InventoryVo;
 
 @Service
 public class InventoryServiceImpl implements InventoryService {

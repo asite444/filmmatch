@@ -1,4 +1,4 @@
-package com.movie.filmmatch.vo;
+package com.movie.filmmatch.member.vo;
 
 import org.apache.ibatis.type.Alias;
 

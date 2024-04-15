@@ -1,4 +1,4 @@
-package com.movie.filmmatch.service;
+package com.movie.filmmatch.member.service;
 
 import java.util.Properties;
 import java.util.Random;

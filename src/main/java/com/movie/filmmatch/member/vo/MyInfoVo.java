@@ -1,4 +1,4 @@
-package com.movie.filmmatch.vo;
+package com.movie.filmmatch.member.vo;
 
 import org.apache.ibatis.type.Alias;
 
@@ -8,8 +8,8 @@ import lombok.Data;
 public class MyInfoVo {
 	
 	int no;
-	int mem_idx;
 	int addr_idx;
+	int mem_idx;
 	int zipcode;
 	String addr_street;
 	String addr_detail;

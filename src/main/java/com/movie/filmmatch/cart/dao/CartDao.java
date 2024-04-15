@@ -34,7 +34,6 @@ public interface CartDao {
     /** 사용자에게 삭제여부 통보 후 실제 카트정보 삭제 */
     public int goods_admin_delete_real(int mem_idx);
 
-    public int select_cart_goods_idx(int i);
 
 
 

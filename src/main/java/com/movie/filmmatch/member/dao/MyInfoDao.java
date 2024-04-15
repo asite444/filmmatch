@@ -1,10 +1,10 @@
-package com.movie.filmmatch.dao;
+package com.movie.filmmatch.member.dao;
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.movie.filmmatch.vo.MyInfoVo;
+import com.movie.filmmatch.member.vo.MyInfoVo;
 @Mapper
 public interface MyInfoDao {
 	
@@ -13,7 +13,7 @@ public interface MyInfoDao {
 
 	public MyInfoVo selectOneList(int mem_idx);
 	
-	public MyInfoVo selectOneAddr(String addr_idx);
+	public MyInfoVo selectOneAddr(int addr_idx);
 
 	public int insert(MyInfoVo vo);
 

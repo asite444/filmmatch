@@ -10,9 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.movie.filmmatch.dao.MemberDao;
 import com.movie.filmmatch.goods.service.GoodsService;
 import com.movie.filmmatch.goods.vo.GoodsVo;
+import com.movie.filmmatch.member.dao.MemberDao;
 import com.movie.filmmatch.movieapi.dao.MovieCommentDao;
 import com.movie.filmmatch.movieapi.vo.ActorVo;
 import com.movie.filmmatch.movieapi.vo.DetailMovieTVVo;

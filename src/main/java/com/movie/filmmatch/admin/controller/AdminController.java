@@ -1,4 +1,4 @@
-package com.movie.filmmatch.controller;
+package com.movie.filmmatch.admin.controller;
 
 import java.util.List;
 import java.util.Map;
@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.movie.filmmatch.dao.MemberDao;
+import com.movie.filmmatch.admin.service.InventoryService;
+import com.movie.filmmatch.admin.vo.InventoryVo;
 import com.movie.filmmatch.goods.service.GoodsService;
 import com.movie.filmmatch.goods.vo.GoodsVo;
-import com.movie.filmmatch.service.InventoryService;
-import com.movie.filmmatch.vo.InventoryVo;
-import com.movie.filmmatch.vo.MemberVo;
+import com.movie.filmmatch.member.dao.MemberDao;
+import com.movie.filmmatch.member.vo.MemberVo;
 
 import jakarta.servlet.http.HttpServletRequest;
 
