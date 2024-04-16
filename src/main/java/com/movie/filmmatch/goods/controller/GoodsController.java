@@ -249,18 +249,18 @@ public class GoodsController {
         }
 
 
-        // InventoryVo InvenVo=new InventoryVo();
-        // InvenVo.setGoods_idx(vo.getGoods_idx());
-        // InvenVo.setName(vo.getGoods_name());
-        // InvenVo.setCnt(vo.getGoods_quantity());
+        InventoryVo InvenVo=new InventoryVo();
+     
+        InvenVo.setName(vo.getGoods_name());
+        InvenVo.setCnt(vo.getGoods_quantity());
 
-        // try { //입고등록해
-		// 	invetory_Service.insert_in(InvenVo);
-		// } catch (Exception e) {
+        try { //입고등록
+			invetory_Service.insert_in(InvenVo);
+		} catch (Exception e) {
 
-        //     System.out.println("에러");
-		// 	System.out.println(e);
-		// }
+            System.out.println("에러");
+			System.out.println(e);
+		}
 		
         String abs_path = application.getRealPath("/upload/");
         // System.out.println(abs_path);
