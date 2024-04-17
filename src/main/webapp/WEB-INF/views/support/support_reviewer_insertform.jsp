@@ -34,47 +34,51 @@
 	
 
 
-    </style>
+</style>
 
 <script type="text/javascript">
     function login(){
 	    
-        location.href="../member/login_form.do?url=" + encodeURIComponent(location.href);
+        location.href="../member/login_form.do?url=" + encodeURIComponent(location.href) ;
     }
 
 
 	function send(f) {
 		
-		let b_subject = f.b_subject.value.trim();
-		let b_content = f.b_content.value.trim();
+		let r_subject = f.r_subject.value.trim();
+		let r_content = f.r_content.value.trim();
 		
-		if(b_subject==''){
+		if(r_subject==''){
 			alert('제목을 입력하세요!');
-			f.b_subject.value='';
-			f.b_subject.focus();
+			f.r_subject.value='';
+			f.r_subject.focus();
 			return;
 		}
 		
-		if(b_content==''){
+		if(r_content==''){
 			alert('내용을 입력하세요!');
-			f.b_content.value='';
-			f.b_content.focus();
+			f.r_content.value='';
+			f.r_content.focus();
 			return;
 		}
 
-		if (confirm("답글을 입력하시겠습니까?")==false)return;
-        f.action = "qna_reply.do"; // /board/reply.do  <- SupportController
+		if (confirm("정말 입력하시겠습니까?")==false)return;
+        f.action = "reviewer_insert.do";
 		f.submit();
     }
+
+    
+
+
 
 </script>
 </head>
 <body>
     <!-- Header -->
 <jsp:include page="${pageContext.request.contextPath}/WEB-INF/views/main/header.jsp"/>
-    <section id="one">
+<section id="one">
 
-      <form>
+    <form>
         <div class="container">
             <div class="row">
                 <div class="col-sm-3">
@@ -88,55 +92,61 @@
     
                         <li><a href="faq.do">자주찾는질문</a></li>
     
-                        <li class="active"><a href="qna.do">1:1문의</a></li>
+                        <li><a href="qna.do">1:1문의</a></li>
     
-                        <li><a href="reviewer.do">평론가</a></li>
+                        <li class="active"><a href="reviewer.do">평론가</a></li>
                     </ul>
                     <hr class="hidden-sm hidden-md hidden-lg">
                 </div>
-
+    
+    
                 <div class="col-sm-8">
-                    <h1>답글달기</h1>
+                    <h1>평론글남기기</h1>
     
                 </div>
                 <br>
                 <br>
-
-                <form action="form-inline">
-                   <input type="hidden"  name="mem_idx"   value="${ user.mem_idx }">
-                   <input type="hidden"  name="b_idx"     value="${ param.b_idx }">
-                   <input type="hidden"  name="mem_name"  value="${ user.mem_name }">
-                   
-                  
-                  <table class="table-wrapper">
-                    <tr>
-                        <th colspan="2">▶<b>${ vo.b_subject }</b>◀ 글의 답글</th>
-                    </tr>
-                    <tr>
-                         <th>제목</th>
-                         <td><input class="query" type="text" name="b_subject"></td>
-                    </tr>
-                    <tr>
-                         <th>내용</th>
-                         <td><textarea class="message" rows="5" name="b_content" ></textarea></td>
-                    </tr>
-                      
-                    <tr>
-                         <td colspan="2" align="center">
-                             <input type="button" class="button special" value="답글달기" 
-                                         onclick="send(this.form);">
-                             <input type="button" class="button"  value="목록보기" 
-                                         onclick="location.href='qna.do'">
-                         </td>
-                      </tr>
-                  </table>
-                </form>
+        
+                <div class="col-sm-8">
+                       
+                    <table>   
+                       
+                        <input type="hidden"  name="mem_idx" value="${ user.mem_idx }">
+                        <input type="hidden"  name="mem_name" value="${ user.mem_name }">
+                        <tr>
+                           
+                            <th colspan="2"><b>${user.mem_id}</b>님의 평론글남기기</th>
+                        </tr>
+                        
+    
+                         <tr>
+                            <th>제목</th>
+                            <td><input class="form-control" name="r_subject" style="width: 100%;"></td>
+                        </tr> 
+                        <tr>
+    
+                            <th>내용</th>
+                            <td><textarea class="form-control" rows="5" name="r_content"></textarea></td>
+                        </tr>
+                        
+                        <tr>
+                            <td colspan="2" align="center">
+                                <input type="button" class="btn btn-primary" value="평론하기" 
+                                        onclick="send(this.form);">
+                                <input type="button" class="btn btn-success" value="목록보기" 
+                                onclick="location.href='reviewer.do'">
+                                      
+                            </td>
+                        </tr>
+                    </table>
+                </div>
              </div>
-          </div>
-      </form>
-    </section>
+            </div>
+           </form>
+
+
+</section>
 <jsp:include page="${pageContext.request.contextPath}/WEB-INF/views/main/footer.jsp" />
-
-
 </body>
+
 </html>

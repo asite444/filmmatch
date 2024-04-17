@@ -13,6 +13,10 @@ public interface SupportDao {
 	// @Select("select * support")
 	public List<SupportVo> selectList();// 문의글 목록 조회
 
+	public List<SupportVo> selectConditionList(Map<String, Object> map);// 문의글 검색 조회
+
+	public int selectConditionRowTotal(Map<String, Object> map); // Page메뉴생성
+
 	public SupportVo selectOne(int b_idx);// 문의글 1건 조회
 
 	public int selectMaxB_idx(); // 등록시킬 답글의 메인게시물의 일련번호(b_idx) 얻어오기
@@ -33,6 +37,6 @@ public interface SupportDao {
 
 	public int delete_update_b_use(int b_idx); // 해당게시물 관련된 데이터 삭제 및 수정(아직기능안됨)
 
-	public int selectRowTotal(Map<String, Object> map); // page Menu생성:검색된 레코드수 조회 (아직기능안됨)
+	public int selectRowTotal(Map<String, Object> map); // page Menu생성:검색된 레코드수 조회
 
 }
