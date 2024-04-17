@@ -35,8 +35,8 @@
 	* {box-sizing: border-box;}
 
 .container{
-	width: 1300px;
-	height: 1000px;
+	width: 1400px;
+	height: 1100px;
 }
 
 
@@ -66,7 +66,13 @@ body {
 	float: left;
 	margin-right: 30px;
 	padding-bottom: 100px; /* 아래쪽으로 간격을 벌립니다. */
-	border: 1px solid white !important;
+	border: 1px solid transparent !important;
+}
+
+.col-sm-3{
+	width: 402px;
+	
+	
 }
 
 .col-sm-4{
@@ -117,6 +123,8 @@ form.example::after {
 
 
 
+
+
  </style>
 </head>
 <body>
@@ -125,9 +133,9 @@ form.example::after {
 <jsp:include page="${pageContext.request.contextPath}/WEB-INF/views/main/header.jsp"/>
 
 <section id="one">
-			<div class="container" style="border: 1px solid black;">
+			<div class="container" style="border: 1px solid transparent;">
 				<div class="row">
-				  <div class="col-sm-3" style="border: 1px solid black;">
+				  <div class="col-sm-3" style="border: 1px solid transparent;">
 					
 					<h2>고객센터</h2>
 					<p></p>
@@ -145,11 +153,15 @@ form.example::after {
 					<hr class="hidden-sm hidden-md hidden-lg">
 				  </div>
 				  
-				  <div class="col-sm-9" style="border: 1px solid black;">
+				  <div class="col-sm-9" style="border: 1px solid transparent;" > 
+					
 						<h2>고객센터홈</h2>
+						
+						<h5>Film Match 고객센터 페이지입니다.</h5>
+						<br>
 
 						
-						  <div id="search_box" class="row" >
+						  <!-- <div id="search_box" class="row" >
 							<form class="form-inline" action="">  
 							
 								  <select id="search" name="search" class="form-control" style="float:left;height:40px;";>
@@ -172,16 +184,17 @@ form.example::after {
 									<i class="fa fa-search"style="float:left;height:20px;"></i>
 									</button>
 								</div>
+								</form>
+							</div>기능구현하지못함으로 주석처리 -->
 
-									
-							</form>
-						   </div>
+
+
 						</div>	
 
 					  	<br>
 
-				   <div class="col" style="border: 1px solid black;" style= "margin-left:500px;">
-
+				   <div class="col" style="border: 1px solid transparent;" style= "margin-left:50px;">
+					<!-- style="border: 1px solid black;"임시보더로 간격맞추기 -->
 					<div class="box">
 						<h3><a href="qna.do">1:1문의</a></h3>
 					  <p><a href="qna.do">해결되지않은 문제가 있나요?</a></p>
@@ -202,17 +215,13 @@ form.example::after {
 					
 				   </div>
 
-				   <div>
-					
-					
-					</div>
+				   
+				   <div></div>
 				   	
-					<div>
-						
-						
-					</div>
+					<div></div>
+					
 				   </div>
-				   <hr>
+				   <br>
 				   
 
 				

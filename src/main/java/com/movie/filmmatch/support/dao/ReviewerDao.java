@@ -24,6 +24,8 @@ public interface ReviewerDao {
 
     public int update(ReviewerVo vo);// 평론글 수정
 
+    public int update_readhit(int b_idx); // 평론글 조회수 증가
+
     public int selectRowTotal(Map<String, Object> map); // page Menu생성:검색된 레코드수 조회
 
 }

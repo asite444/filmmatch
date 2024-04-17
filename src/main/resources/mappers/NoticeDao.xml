@@ -15,7 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from
 		(
 			select 
-				s.*, rank() over(order by n_idx desc) as no 
+				s.*, rank() over(order by n_idx desc) as n_no 
 			from
 			(
 		
@@ -38,7 +38,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 		) s
 	) ss
-	where no between #{ start } and #{ end }
+	where n_no between #{ start } and #{ end }
 		
 	</select>
 
@@ -93,6 +93,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                       n_regdate=now()
      where n_idx = #{ n_idx } 
 	 </update> 
+
+	  <!-- 조회수 증가 -->
+	<update id="update_readhit" parameterType="int">
+		update notice set n_readhit = n_readhit+1 where n_idx = #{n_idx}
+	</update>
 
 
 

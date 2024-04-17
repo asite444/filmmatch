@@ -17,6 +17,7 @@ public class FaqVo {
     int mem_idx; // "" 회원번호
     String mem_name; // "" 회원명
     String f_use; // "" 사용유무
+    int f_no;
 
     int f_community_page; // "" 페이지
 

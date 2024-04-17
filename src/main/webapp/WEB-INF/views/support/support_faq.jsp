@@ -168,7 +168,7 @@ form.example::after {
 					 <div id="search_box" class="row" >
 						<form class="form-inline" action="">  
 						
-							  <select id="search" name="search" class="form-control" style="float:left;height:40px;";>
+							  <select id="search" name="search" class="form-control" style="height: 40px; width: 179px; float:left;";>
 								  <option value="all">전체보기</option>
 								  <option value="name">이름</option>
 								  <option value="subject">제목</option>
@@ -182,8 +182,8 @@ form.example::after {
 							 
 							<div class="search-bar" style="width:700px;">
 								
-
-								  <input type="text" placeholder="검색어를 입력하세요.." name="search_text" value="${ param.search_text}" style="float:left;width:500px;height:40px;">
+									                                                                      <!-- 검색창에 검색어가 없어서 null이어도 null 표시하지 않음 -->
+								  <input type="text" placeholder="검색어를 입력하세요.." name="search_text" value="${  param.search_text eq 'null' ? '' : param.search_text}" style="float:left;width:500px;height:40px;">
 								  <button type="search-bar" class="btn btn-primary"; onclick="find();return false;">
 								<i class="fa fa-search" style="float:left;height:20px;"></i>
 								</button>
@@ -198,10 +198,12 @@ form.example::after {
 						  
 						  
 						<div class="col-sm-8">
-							<div class="row" style="margin-bottom: 5px;">
+							<h5>자주찾는질문입니다. 검색을 통해 간단한 문제나 궁금한 점을 해결보세요.</h5>
+							<div class="row" style="margin-bottom: 5px; margin-left: 2px;">
 								<form class="col-sm-3">
+									<!-- 관리자만 FAQ올리기 가능 -->
 									<c:if test="${ user.mem_grade eq '관리자' }">
-								   <input class="btn btn-success" type="button"  value="질문올리기"
+								   <input class="btn btn-success" type="button"  value="FAQ올리기" style="margin-left: -40px;"
 											  onclick="location.href='faq_insertform.do?f_idx=${ vo.f_idx }'" >
 									</c:if>
 								</form>
@@ -222,7 +224,7 @@ form.example::after {
 									<tr>
 										<!-- 번호 -->
 										<td>
-										  ${i.count}
+										  ${vo.f_no}
 										</td>                                             
 										
 										<td>

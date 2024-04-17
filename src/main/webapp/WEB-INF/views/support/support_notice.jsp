@@ -13,12 +13,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script src="assets/js/jquery.min.js"></script><script src="assets/js/skel.min.js"></script>
-  <script src="assets/js/util.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
+  <script src="${pageContext.request.contextPath}/assets/js/skel.min.js"></script>
+  <script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
+  <script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
+  <!-- ${pageContext.request.contextPath}경로알아서찾기 -->
 
 <script type="text/javascript">
     function login(){
@@ -71,7 +73,7 @@
 }
 
 #search_box{
-	width: 200px;
+	width: 200px; 
 	height: 60px;
 	
 }
@@ -160,7 +162,7 @@ form.example::after {
 					<div id="search_box" class="row" >
 						<form class="form-inline" action="">  
 						
-							  <select id="search" name="search" class="form-control" style="float:left;height:40px;";>
+							  <select id="search" name="search" class="form-control" style="height: 40px; width: 179px; float:left;";>
 								  <option value="all">전체보기</option>
 								  <option value="name">이름</option>
 								  <option value="subject">제목</option>
@@ -173,9 +175,9 @@ form.example::after {
 							  
 							 
 							<div class="search-bar" style="width:700px;">
-								
 
-								  <input type="text" placeholder="검색어를 입력하세요.." name="search_text" value="${ param.search_text}" style="float:left;width:500px;height:40px;">
+									                                                                       <!-- 검색창에 검색어가 없어서 null이어도 null 표시하지 않음 -->
+								  <input type="text" placeholder="검색어를 입력하세요.." name="search_text" value="${  param.search_text eq 'null' ? '' : param.search_text}" style="float:left;width:500px;height:40px;">
 								  <button type="search-bar" class="btn btn-primary"; onclick="find();return false;">
 								<i class="fa fa-search" style="float:left;height:20px;"></i>
 								</button>
@@ -188,11 +190,12 @@ form.example::after {
 					<br>
 					   
 					<div class="col-sm-8">
-
-						<div class="row" style="margin-bottom: 5px;">
+						<h5>공지사항입니다. 안내사항 및 다양한 이벤트 일정을 확인해보세요.</h5>
+						<div class="row" style="margin-bottom: 5px;  margin-left: 2px;">
 							<form class="col-sm-3">
+								<!-- 관리자만 공지글올리기 가능 -->
 							   <c:if test="${ user.mem_grade eq '관리자' }">
-							   <input class="btn btn-success" type="button"  value="공지글올리기"
+							   <input class="btn btn-success" type="button"  value="공지글올리기" style="margin-left: -40px;"
 										  onclick="location.href='notice_insertform.do'" >
 								</c:if>
 							</form>
@@ -213,7 +216,7 @@ form.example::after {
 							  <tr>
 								  <!-- 번호 -->
 								  <td>
-									${i.count}
+									${vo.n_no}
 								  </td> 
 								  
 								  <td>

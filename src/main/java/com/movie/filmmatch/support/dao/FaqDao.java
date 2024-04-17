@@ -24,6 +24,8 @@ public interface FaqDao {
 
     public int update(FaqVo vo); // 자주찾는질문 수정하기
 
+    public int update_readhit(int b_idx); // 자주찾는질문 조회수 증가
+
     public int selectRowTotal(Map<String, Object> map); // page Menu생성:검색된 레코드수 조회
 
 }

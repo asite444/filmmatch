@@ -29,14 +29,16 @@ public interface SupportDao {
 
 	public int update(SupportVo vo);// 문의글 수정하기
 
-	public int update_readhit(int b_idx);// 문의글에 대한 조회수 (아직기능안됨)
+	public int update_readhit(int b_idx);// 문의글에 대한 조회수증가
 
 	public int update_step(SupportVo vo); // 답글달기
 
 	public int reply(SupportVo vo); // 문의글의 대한 새로운 답글달기(관리지만 가능)
 
-	public int delete_update_b_use(int b_idx); // 해당게시물 관련된 데이터 삭제 및 수정(아직기능안됨)
+	public int delete_update_b_use(int b_idx); // 해당게시물 관련된 데이터 삭제 및 수정
 
 	public int selectRowTotal(Map<String, Object> map); // page Menu생성:검색된 레코드수 조회
+
+	public CommentsDao getInstance();
 
 }

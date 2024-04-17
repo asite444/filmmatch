@@ -174,9 +174,9 @@ form.example::after {
 						<h2>평론가 게시판</h2>
 						
 						<div id="search_box" class="row" >
-							<form class="form-inline" action="">  
+							<form class="form-inline">  
 							
-								  <select id="search" name="search" class="form-control" style="float:left;height:40px;";>
+								  <select id="search" name="search" class="form-control" style="height: 40px; width: 179px; float:left;";>
 									  <option value="all">전체보기</option>
 									  <option value="name">이름</option>
 									  <option value="subject">제목</option>
@@ -190,8 +190,8 @@ form.example::after {
 								 
 								<div class="search-bar" style="width:700px;">
 									
-	
-									  <input type="text" placeholder="검색어를 입력하세요.." name="search_text" value="${ param.search_text}" style="float:left;width:500px;height:40px;">
+									                                                                           <!-- 검색창에 검색어가 없어서 null이어도 null 표시하지 않음 -->
+									  <input type="text" placeholder="검색어를 입력하세요.." name="search_text" value="${  param.search_text eq 'null' ? '' : param.search_text}" style="float:left;width:500px;height:40px;">
 									  <button type="search-bar" class="btn btn-primary";   onclick="find();return false;">
 									<i class="fa fa-search" style="float:left;height:20px;"></i>
 									</button>
@@ -204,10 +204,11 @@ form.example::after {
 					  	<br>
 
 				   <div class="col-sm-8">
-					<!-- 이 if태그는 mem_grade가 "평론가" -->
+					<!-- 이 if태그는 mem_grade가 "평론가"이지만 임시로 일반등급 -->
 					<!-- 123여기는 아무에게나 보이고 -->
+					<!-- 평론가만 평론글남기기 가능 -->
 					<c:if test="${ member.mem_grade eq '일반'}">
-    					<p>평론가 전용 페이지입니다.</p>
+    					<h5>평론가 전용 페이지입니다.</h5>
 						<form>
 							<input type="button" value="글남기기" onclick="send(this.form);">
 						</form>
@@ -231,7 +232,7 @@ form.example::after {
 
 								<!-- 번호 -->
 								<td>
-									${i.count}
+									${vo.r_no}
 								</td>                                             
 								
 								<!-- 제목 -->

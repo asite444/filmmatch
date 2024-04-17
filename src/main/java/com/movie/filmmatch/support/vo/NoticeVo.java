@@ -17,6 +17,7 @@ public class NoticeVo {
     int mem_idx; // "" 회원번호
     String mem_name; // "" 회원명
     String n_use; // "" 사용유무
+    int n_no;
 
     int n_community_page; // "" 페이지
 

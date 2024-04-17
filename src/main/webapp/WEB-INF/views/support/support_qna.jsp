@@ -192,9 +192,9 @@ form.example::after {
 					<h2>1:1문의</h2> 
 
 					<div id="search_box" class="row" >
-						<form class="form-inline" action="">  
+						<form class="form-inline">  
 						
-							  <select id="search" name="search" class="form-control" style="float:left;height:40px;";>
+							  <select id="search" name="search" class="form-control" style="height: 40px; width: 179px; float:left;";>
 								  <option value="all">전체보기</option>
 								  <option value="name">이름</option>
 								  <option value="subject">제목</option>
@@ -208,8 +208,8 @@ form.example::after {
 							 
 							<div class="search-bar" style="width:700px;">
 								
-
-								  <input type="text" placeholder="검색어를 입력하세요.." name="search_text"  value="${ param.search_text}" style="float:left;width:500px;height:40px;">
+									                                                                       <!-- 검색창에 검색어가 없어서 null이어도 null 표시하지 않음 -->
+								  <input type="text" placeholder="검색어를 입력하세요.." name="search_text"  value="${  param.search_text eq 'null' ? '' : param.search_text}" style="float:left;width:500px;height:40px;">
 								  <button type="search-bar" class="btn btn-primary";   onclick="find();return false;">
 									 <i class="fa fa-search" style="float:left;height:20px;"></i>
 								  </button>
@@ -225,10 +225,10 @@ form.example::after {
 
 
 					<div class="col-sm-8">
-						
-						<div class="row" style="margin-bottom: 5px;">
-							<form class="col-sm-3">
-							   <input class="btn btn-success" type="button"  value="문의하기"
+						<h5>1:1문의 게시판입니다. 문의사항 남겨주시면 신속히 답변해드리겠습니다.</h5>
+						<div class="row" style="margin-bottom: 5px; margin-left: 2px;">
+							<form >
+							   <input type="button"  value="문의하기" style="margin-left: -40px;"
 										  onclick="location.href='qna_insertform.do'">
 							   
 							</form>

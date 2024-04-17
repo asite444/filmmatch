@@ -8,8 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectList" resultType="support">
 		select * from support
 		order by b_ref desc, b_step asc 
-		 <!-- where community_page = ${community_page}
-		 order by b_ref desc, b_step asc  -->
+		 
 	</select>
 
 	<!-- 문의글 검색 조회 -->

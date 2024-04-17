@@ -76,6 +76,9 @@ public class SupportController {
 	@RequestMapping("notice.do") // ~9090:support/home.do 고객센터 공지사항
 	public String notice(Model model) {
 
+		// 남아있는 조회수정보 삭제하고 목록보기 들어가면 조회수 증가됨
+		session.removeAttribute("show");
+
 		int nowPage = 1;
 
 		String page = request.getParameter("page");
@@ -139,6 +142,9 @@ public class SupportController {
 	@RequestMapping("faq.do") // ~9090:support/home.do 고객센터 자주찾는질문
 	public String faq_list(Model model) {
 
+		// 남아있는 조회수정보 삭제하고 목록보기 들어가면 조회수 증가됨
+		session.removeAttribute("show");
+
 		int nowPage = 1;
 
 		String page = request.getParameter("page");
@@ -200,6 +206,9 @@ public class SupportController {
 
 	@RequestMapping("qna.do") // ~9090:support/qna.do 1:1문의 게시판
 	public String qna_list(Model model) {
+
+		// 남아있는 조회수정보 삭제하고 목록보기 들어가면 조회수 증가됨
+		session.removeAttribute("show");
 
 		int nowPage = 1;
 
@@ -278,6 +287,9 @@ public class SupportController {
 			return "redirect:../member/login_form.do?reason=session_timeout";
 			// session_timeout: 세션만료(로그아웃상태)
 		}
+
+		// 남아있는 조회수정보 삭제하고 목록보기 들어가면 조회수 증가됨
+		session.removeAttribute("show");
 
 		int nowPage = 1;
 
@@ -546,6 +558,13 @@ public class SupportController {
 
 		// idx해당되는 게시물 1건 얻어오기
 		SupportVo vo = support_dao.selectOne(b_idx);
+		// 세션에서 게시물을 봤는지에 대한 체크(새로고침으로 부정조회수 방지위함)
+		// qna.do에 남아있는조회수 정보 삭제 코드 추가해야함
+		if (session.getAttribute("show") == null) {
+			// 조회수 증가
+			int res = support_dao.update_readhit(b_idx);
+			session.setAttribute("show", true);
+		}
 
 		// content => <br> -> \n
 		String b_content = vo.getB_content().replaceAll("<br>", "\n");
@@ -569,6 +588,11 @@ public class SupportController {
 
 		// idx해당되는 게시물 1건 얻어오기
 		ReviewerVo vo = reviewer_dao.selectOne(r_idx);
+		if (session.getAttribute("show") == null) {
+			// 조회수 증가
+			int res = reviewer_dao.update_readhit(r_idx);
+			session.setAttribute("show", true);
+		}
 
 		// content => <br> -> \n
 		String r_content = vo.getR_content().replaceAll("<br>", "\n");
@@ -842,6 +866,12 @@ public class SupportController {
 
 		// idx해당되는 게시물 1건 얻어오기
 		NoticeVo vo = notice_dao.selectOne(n_idx);
+		// 세션에서 게시물을 봤는지에 대한 체크(새로고침으로 부정조회수 방지위함)
+		if (session.getAttribute("show") == null) {
+			// 조회수 증가
+			int res = notice_dao.update_readhit(n_idx);
+			session.setAttribute("show", true);
+		}
 
 		// content => <br> -> \n
 		String n_content = vo.getN_content().replaceAll("<br>", "\n");
@@ -1002,6 +1032,12 @@ public class SupportController {
 
 		// idx해당되는 게시물 1건 얻어오기
 		FaqVo vo = faq_dao.selectOne(f_idx);
+		// 세션에서 게시물을 봤는지에 대한 체크(새로고침으로 부정조회수 방지위함)
+		if (session.getAttribute("show") == null) {
+			// 조회수 증가
+			int res = faq_dao.update_readhit(f_idx);
+			session.setAttribute("show", true);
+		}
 
 		// content => <br> -> \n
 		String f_content = vo.getF_content().replaceAll("<br>", "\n");

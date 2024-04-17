@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from
 		(
 			select
-				s.*,rank() over(order by r_ref desc, r_step asc) as no
+				s.*,rank() over(order by r_idx desc) as r_no
 			from
 			(
 			  select * from reviewer
@@ -36,7 +36,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			  </trim>
 			) s
 		) ss
-		where no between #{ start } and #{ end }
+		where r_no between #{ start } and #{ end }
 	
 	</select>
 
@@ -91,7 +91,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                       r_ip = #{ r_ip },
                       r_regdate=now()
      where r_idx = #{ r_idx } 
-	 </update>       
+	 </update>
+
+	  <!-- 조회수 증가 -->
+	<update id="update_readhit" parameterType="int">
+		update reviewer set r_readhit = r_readhit+1 where r_idx = #{r_idx}
+	</update>       
 
 </mapper>
 
