@@ -70,7 +70,7 @@ public class InventoryServiceImpl implements InventoryService {
 	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public int insert_out(InventoryVo vo) throws Exception {
-		// TODO Auto-generated method stub
+
 		System.out.println("실행!");
 		//1.출고등록
 		int res = inventory_out_dao.insert(vo);

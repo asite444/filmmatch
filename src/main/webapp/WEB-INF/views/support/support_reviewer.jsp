@@ -207,7 +207,7 @@ form.example::after {
 					<!-- 이 if태그는 mem_grade가 "평론가"이지만 임시로 일반등급 -->
 					<!-- 123여기는 아무에게나 보이고 -->
 					<!-- 평론가만 평론글남기기 가능 -->
-					<c:if test="${ member.mem_grade eq '일반'}">
+					<c:if test="${ member.mem_grade eq '평론가'}">
     					<h5>평론가 전용 페이지입니다.</h5>
 						<form>
 							<input type="button" value="글남기기" onclick="send(this.form);">
