@@ -77,7 +77,8 @@
 </head>
 <body class=""> <!-- class="sb-nav-fixed" -->
     <!-- header -->
-    <jsp:include page="${pageContext.request.contextPath}/WEB-INF/views/admin/header.jsp"/>
+    <jsp:include page="${pageContext.request.contextPath}/WEB-INF/views/main/mainheader.jsp"/>
+
     <!-- menu -->
     <jsp:include page="${pageContext.request.contextPath}/WEB-INF/views/admin/admin_menu.jsp"/>
 
@@ -86,7 +87,7 @@
         <div class="container-fluid px-4">
             <h1 class="mt-4">회원관리</h1>
             <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="../admin/main.do">ADMIN MAIN</a></li>
                 <li class="breadcrumb-item active">Charts</li>
             </ol>
             <div class="card mb-4">
@@ -96,15 +97,7 @@
                    
                 </div>
             </div>
-            <div class="card mb-4">
-                <div class="card-header">
-                    <i class="fas fa-chart-area me-1"></i>
-                    Area Chart Example
-                </div>
-                <div class="card-body"><canvas id="myAreaChart" width="100%" height="30"></canvas></div>
-                <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-            </div>
-
+           
             <!-- 회원관리 테이블 -->
             <div class="card mb-4">
                 <div class="card-header">
@@ -148,8 +141,8 @@
                                                     <!-- onclick="location.href='admin_modify.do?mem_idx=${ vo.mem_idx }'" -->
                                         <input class="btn btn-info" type="button"  value="보기"
                                                 onclick="view('${vo.mem_idx}');" >
-                                        <input class="btn btn-primary" type="button"  value="주소보기"
-                                                onclick="addr('${vo.mem_idx}');" >
+                                        <%-- <input class="btn btn-primary" type="button"  value="주소보기"
+                                                onclick="addr('${vo.mem_idx}');" > --%>
                                                 <input class="btn btn-danger"  type="button"  value="삭제" onclick="del('${vo.mem_idx}');">
                                     </td>
                                     </tr>
@@ -160,19 +153,18 @@
                 </div>
             </div>
             <!-- 회원주소목록 -->
-            <div class="card mb-4">
+            <%-- <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-chart-area me-1"></i>
                    회원별 주소목록
                 </div>
                 <div class="card-body">
-                    <!-- <canvas id="myAreaChart" width="100%" height="30"></canvas> -->
-
+                    
 
 
                 </div>
                 <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-            </div>
+            </div> --%>
 
 
             <div class="row">

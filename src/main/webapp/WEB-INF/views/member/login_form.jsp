@@ -130,7 +130,7 @@ function kakaoLogout() {
                                   //sendUserInfoToServer(response);
                                     console.log("로그인 성공 : "+response.id);
                                     //console.log(response);
-                                    alert(response.id);
+                                   // alert(response.id);
 
                                   $.ajax({
                                             type: "POST",
@@ -270,11 +270,11 @@ function kakaoLogout() {
               </a>
             </button> -->
 
-            <div onclick="kakaoLogout();">
+            <%-- <div onclick="kakaoLogout();">
               <a href="javascript:void(0)">
                   <span>카카오 로그아웃</span>
               </a>
-            </div>
+            </div> --%>
 
         
         <!-- <button class="kakao__btn " onclick="send(this.form);">

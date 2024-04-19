@@ -102,7 +102,8 @@
                 <br>
                 <br>
 
-                <form action="form-inline">
+                <div class="col-sm-8">
+                <form action="table-wrapper">
                    <input type="hidden"  name="mem_idx"   value="${ user.mem_idx }">
                    <input type="hidden"  name="b_idx"     value="${ param.b_idx }">
                    <input type="hidden"  name="mem_name"  value="${ user.mem_name }">
@@ -131,6 +132,7 @@
                       </tr>
                   </table>
                 </form>
+                </div>
              </div>
           </div>
       </form>

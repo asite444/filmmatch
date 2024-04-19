@@ -7,7 +7,9 @@
 <!DOCTYPE html>
 <head>
 
-<!-- <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main/main.css"></head><body> -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css"></head><body>
+<!-- 카카오 스크립트 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
 <title>FilmFlow - 영화, 책 ,TV프로그램 추천 및 평가 서비스</title>
  <style>

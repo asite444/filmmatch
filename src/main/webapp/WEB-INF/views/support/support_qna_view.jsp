@@ -82,6 +82,16 @@
 		background-color: black !important;
 	}
 
+	#disp{
+		
+		
+		margin-left: 890px;
+		margin-right: auto;
+ 		width: 1040px;
+
+		
+	}
+
 	
 
 
@@ -115,6 +125,8 @@
 	clear: both;
 	display: table;
 	}
+
+
 	</style>
 
 	<script type="text/javascript">
@@ -195,7 +207,7 @@
 		}//로그인여부
 
 		   //내용입력 여부체크
-		   let cmt_content = $("#cmt_content").val().trim();//왜 cmt_content 변수가 정의 되지 않은 걸까?
+		   let cmt_content = $("#cmt_content").val().trim();
 		   if(cmt_content==''){
 			   alert('댓글 내용을 입력하세요!');
 			   $("#cmt_content").val('');
