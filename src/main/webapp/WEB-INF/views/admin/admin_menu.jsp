@@ -78,10 +78,7 @@
 								<div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
 									data-bs-parent="#sidenavAccordion">
 									<nav class="sb-sidenav-menu-nested nav">
-										<a class="nav-link" href="${ pageContext.request.contextPath }/admin/admin_inventory.do">입_출_재고관리</a>
-										<a class="nav-link" href="${ pageContext.request.contextPath }/admin/inventory_in.do">입고관리</a>
-										<a class="nav-link" href="${ pageContext.request.contextPath }/admin/inventory_remain.do">재고관리</a>
-										<a class="nav-link" href="${ pageContext.request.contextPath }/admin/inventory_out.do">출고관리</a>
+										<a class="nav-link" href="${ pageContext.request.contextPath }/admin/admin_inventory.do">재고관리</a>
 									</nav>
 								</div>
 								
@@ -106,37 +103,33 @@
 											<nav class="sb-sidenav-menu-nested nav">
 												<a class="nav-link" href="${pageContext.request.contextPath}/goods/insert_form.do">상품등록</a>
 											<a class="nav-link" href="${ pageContext.request.contextPath }/admin/goods_list_admin.do">상품리스트</a>
-											<a class="nav-link" href="layout-sidenav-light.html">상품삭제</a>
 											</nav>
 										</div>
-										<!-- 에러 페이지 -->
-										<!-- <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-											data-bs-target="#pagesCollapseError" aria-expanded="false"
-											aria-controls="pagesCollapseError">
-											Error
-											<div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-										</a>
-										<div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne"
-											data-bs-parent="#sidenavAccordionPages">
-											<nav class="sb-sidenav-menu-nested nav">
-												<a class="nav-link" href="401.html">401 Page</a>
-												<a class="nav-link" href="404.html">404 Page</a>
-												<a class="nav-link" href="500.html">500 Page</a>
-											</nav>
-										</div> -->
+									
 								</nav>
 							</div>
 							<!--  -->
 							<div class="sb-sidenav-menu-heading">Addons</div>
-							<a class="nav-link" href="#">
-								<div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-								빈페이지
-							</a>
 							<a class="nav-link" href="admin_member.do">
 								<div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
 								회원관리
 							</a>
+							<a class="nav-link" href="${pageContext.request.contextPath}/support/notice.do">
+								<div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+								공지사항
+							</a>
+								<a class="nav-link" href="${pageContext.request.contextPath}/support/faq.do">
+								<div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+								자주찾는질문
+							</a>
+								</a>
+								<a class="nav-link" href="${pageContext.request.contextPath}/support/qna.do">
+								<div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+								1:1 문의사항
+							</a>
 						</div>
+
+						
 					</div>
 					<div class="sb-sidenav-footer">
 						<div class="small">Logged in as:</div>

@@ -76,13 +76,13 @@
                         <h1 style="text-align:center;">상품재고관리 시스템</h1>
                         <hr id="gap">
                         <div id="sub_box">
-                            <div class="job_box" >
+                            <div class="job_box" style="overflow: auto; max-height: 500px; ">
                                 <%@include file="inventory_in.jsp" %>
                             </div>
-                            <div class="job_box">
+                            <div class="job_box" style="overflow: auto; max-height: 500px;">
                                 <%@include file="inventory_remain.jsp" %>
                             </div>
-                            <div class="job_box">
+                            <div class="job_box" style="overflow: auto; max-height: 500px;">
                                 <%@include file="inventory_out.jsp" %>
                             </div> 
                             

@@ -16,6 +16,12 @@ import com.movie.filmmatch.goods.service.GoodsService;
 import com.movie.filmmatch.goods.vo.GoodsVo;
 import com.movie.filmmatch.member.dao.MemberDao;
 import com.movie.filmmatch.member.vo.MemberVo;
+import com.movie.filmmatch.support.dao.FaqDao;
+import com.movie.filmmatch.support.dao.NoticeDao;
+import com.movie.filmmatch.support.dao.SupportDao;
+import com.movie.filmmatch.support.vo.FaqVo;
+import com.movie.filmmatch.support.vo.NoticeVo;
+import com.movie.filmmatch.support.vo.SupportVo;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -41,14 +47,29 @@ public class AdminController {
     @Autowired
     InventoryService invetory_Service;
 
+    
+    @Autowired
+    SupportDao support_dao;
+
+
+    @Autowired
+	FaqDao faq_dao;
+
+    @Autowired
+    NoticeDao notice_dao;
 
     /**
      * 관리자페이지 메인
      * @return
      */
     @RequestMapping("main.do")
-    public String admin_main() {
-        
+    public String admin_main(Model model) {
+        List<SupportVo> supportList =support_dao.selectList();
+        List<FaqVo> faqList=faq_dao.selectList(5);
+        List<NoticeVo> noticeList=notice_dao.selectList(10);
+        model.addAttribute("supportList", supportList);
+        model.addAttribute("faqList", faqList);
+        model.addAttribute("noticeList", noticeList);
         return "admin/admin_main";
     }
     /**
