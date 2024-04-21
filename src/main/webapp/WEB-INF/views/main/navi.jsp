@@ -848,8 +848,8 @@ function showPlace(url){
 
 <body>
         <div id="menu_box"   class="container pt-4 pt-xl-1 c" style="margin:auto;" >
+<%@ include file="../main/header.jsp"  %>
 
-			<jsp:include page="${pageContext.request.contextPath}/WEB-INF/views/main/header.jsp"/>
 
   			<div id="genrebox">
     			<a id="gencate" href="genre.do">장르별&ensp; |</a>

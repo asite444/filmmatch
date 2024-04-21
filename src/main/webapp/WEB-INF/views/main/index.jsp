@@ -45,7 +45,8 @@
 
 
 <!-- Header -->
-<jsp:include page="mainheader.jsp"/>
+<%@ include file="mainheader.jsp" %>
+
 
 <a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 
@@ -202,5 +203,4 @@
 			
 			
 		<!-- Footer -->
-		<jsp:include page="${pageContext.request.contextPath}/WEB-INF/views/main/footer.jsp"/>
-		
+<%@ include file="../main/footer.jsp" %>
