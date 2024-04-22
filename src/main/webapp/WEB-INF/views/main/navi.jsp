@@ -1,12 +1,5 @@
-<!--  최병훈 : 2024.01.29 PM 02:30 수정 -->
 
-
-<%-- 이영준(1/23 12:00) --%>
-<%-- 최병훈 Category Menupan  메뉴링크 수정 01.23. 17:38 --%> 
-<%-- 최병훈 전체링크 수정 01.24. 05:20 --%> 
-<%-- 최병훈 (01/25. 08:30 - file/link 재설정, class수정) --%> 
-<%-- 최병훈 (01/25. 10:02 - category alt="숫자로 변경") --%>
-
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
