@@ -36,10 +36,7 @@
                 <th>나의정보</th>
                 <td> <a href="${pageContext.request.contextPath}/mypage_myinfo.do"><button type="button">버튼</button></a></td>
             </tr>
-            <tr>
-                <th>내가쓴 글</th>
-                <td><a href="${pageContext.request.contextPath}/support/support_home.do"><button type="button">버튼</button></a></td>
-            </tr>
+     
 
         </table>
 
