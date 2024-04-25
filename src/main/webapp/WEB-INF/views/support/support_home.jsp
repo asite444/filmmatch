@@ -122,14 +122,33 @@ form.example::after {
 
 
 
+    .menu {
+            float: left;
+            width: 150px; /* 메뉴 너비 조정 */
+        }
 
+        .content {
+            margin-left: 160px; /* 메뉴 너비 + 간격 조정 */
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                float: none;
+                width: auto;
+            }
+
+            .content {
+                margin-left: 0;
+            }
+        }
 
 
  </style>
 </head>
 <body>
 
-<!-- Header -->	<%@ include file="../main/header.jsp"  %>
+<!-- Header -->
+<jsp:include page="${pageContext.request.contextPath}/WEB-INF/views/main/header.jsp"/>
 
 <section id="one">
 			<div class="container" style="border: 1px solid transparent;">
@@ -335,7 +354,8 @@ form.example::after {
 		</div>
 			
     
-  </section><%@ include file="../main/footer.jsp" %>
+  </section>
+<jsp:include page="${pageContext.request.contextPath}/WEB-INF/views/main/footer.jsp"/>
 </body>
 </html>
 

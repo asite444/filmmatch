@@ -71,7 +71,7 @@
 </head>
 <body>
     <!-- Header -->
-	<%@ include file="../main/header.jsp"  %>
+<jsp:include page="${pageContext.request.contextPath}/WEB-INF/views/main/header.jsp"/>
     <section id="one">
 
       <form>
@@ -137,7 +137,8 @@
           </div>
       </form>
     </section>
-<%@ include file="../main/footer.jsp" %>
+<jsp:include page="${pageContext.request.contextPath}/WEB-INF/views/main/footer.jsp" />
+
 
 </body>
 </html>
