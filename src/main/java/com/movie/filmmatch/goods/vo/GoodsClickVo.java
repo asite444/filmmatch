@@ -23,16 +23,18 @@ CREATE TABLE `GoodsClick` (
  * 상품 클릭 데이터 저장
  */
 @Data
-@Alias("GoodsClick")
+@Alias("goodsClick")
 public class GoodsClickVo {
 
     private int click_idx;          //클릭 고유번호
     private int goods_idx; 
     private int mem_idx; 
+    private String goods_name;
     private int cate_id; 
     private int mem_click;          //회원 클릭수  
     private String gender;          //클릭성별 
-    private String age_group;       //나이별 
+    private int age_group;       //나이별 
     private String click_timestamp; // 클릭시간대
+    private int is_selling;         // 상품 판매중여부
 
 }

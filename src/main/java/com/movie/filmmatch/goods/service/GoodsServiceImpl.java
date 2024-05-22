@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.movie.filmmatch.cart.dao.CartDao;
 import com.movie.filmmatch.goods.dao.CategoriesDao;
+import com.movie.filmmatch.goods.dao.GoodsClickDao;
 import com.movie.filmmatch.goods.dao.GoodsDao;
 import com.movie.filmmatch.goods.vo.CategoriesVo;
 import com.movie.filmmatch.goods.vo.GoodsVo;
@@ -17,6 +18,9 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Autowired
     GoodsDao goods_dao;
+
+    @Autowired
+    GoodsClickDao goods_clickDao;
 
     @Autowired
     CartDao cart_dao;
@@ -68,6 +72,9 @@ public class GoodsServiceImpl implements GoodsService {
     @Override
     public GoodsVo selectOne(int goods_idx) {
 
+
+        
+
         // 조회수증가
         int res=goods_dao.goodsHitsPlus(goods_idx);
 
@@ -95,9 +102,6 @@ public class GoodsServiceImpl implements GoodsService {
 
         /**관리자에 의해 상품 삭제처리(업데이트 is_deleted=1) */
         res=cart_dao.goods_admin_delete(goods_idx);
-
-
-
 
 
         return res;

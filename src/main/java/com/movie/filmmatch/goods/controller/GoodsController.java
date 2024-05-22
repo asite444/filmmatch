@@ -19,6 +19,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.movie.filmmatch.admin.service.InventoryService;
 import com.movie.filmmatch.admin.vo.InventoryVo;
+import com.movie.filmmatch.goods.service.GoodsClickService;
 import com.movie.filmmatch.goods.service.GoodsService;
 import com.movie.filmmatch.goods.vo.CategoriesVo;
 import com.movie.filmmatch.goods.vo.GoodsVo;
@@ -40,6 +41,9 @@ public class GoodsController {
 
     @Autowired
     InventoryService invetory_Service;
+
+    @Autowired
+    GoodsClickService goods_ClickService;
 
     /**
      * 굿즈 리스트
@@ -164,8 +168,25 @@ public class GoodsController {
      * @return
      */
     @RequestMapping("goods_view.do")
-    public String goods_view(int goods_idx, Model model) {
+    public String goods_view(int goods_idx, Model model,HttpServletRequest request) {
+
+        MemberVo member = (MemberVo) request.getSession().getAttribute("user");
+
+    
+        
+
+    
+
         GoodsVo vo = goods_service.selectOne(goods_idx);
+
+
+        /*로그인한 경우 */
+        if(member!=null){
+
+        int res=goods_ClickService.handle_goods_Click(member, vo);
+
+            
+        }
 
         model.addAttribute("vo", vo);
         return "goods/goods_views";

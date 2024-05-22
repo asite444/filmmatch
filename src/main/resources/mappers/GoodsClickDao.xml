@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.movie.filmmatch.goods.dao.GoodsClickDao">
+
+<select id="selectList" resultType="goodsClick">
+select * from goodsclick
+</select>
+
+<!-- 같은 사용자  조회이력유무 -->
+<select id="selectOne_goods_click" parameterType="map" resultType="goodsClick">
+select * from goodsclick where goods_idx=#{goods_idx} and mem_idx=#{mem_idx}
+</select>
+
+<insert id="insert_goods_click" parameterType="goodsclick">
+INSERT INTO goodsclick  
+(goods_idx
+, mem_idx
+, goods_name
+, cate_id
+, gender
+, age_group
+, click_timestamp
+, is_selling) 
+VALUES (
+  #{goods_idx},
+  #{mem_idx},
+  #{goods_name},
+  #{cate_id},
+  #{gender}, 
+  #{age_group}, 
+  now(),
+  1)
+</insert>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
