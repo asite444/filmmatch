@@ -9,7 +9,8 @@ import lombok.Data;
 public class InventoryVo {
 
 	
-	int idx;
+	int inv_idx;
+	int goods_idx;
 	String name;
 	int cnt;
 	String regdate;

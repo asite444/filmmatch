@@ -33,6 +33,11 @@ on p.cate_id=g.cate_id
       </trim>
 	</select>
 
+<!-- 조회수 증가 -->
+<update id="goodsHitsPlus" parameterType="int">
+   update  goods set goods_hits=goods_hits+1 where goods_idx=#{goods_idx}
+</update>
+
 <!-- 목록조회 페이징처리-->
 <select id="selectList_paging" parameterType="map" resultType="goods">
 select * from(

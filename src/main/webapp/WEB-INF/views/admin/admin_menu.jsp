@@ -75,6 +75,10 @@
 										
 											<a class="nav-link" href="${ pageContext.request.contextPath }/admin/goods_list_admin.do">상품리스트</a>
 											<div class="sb-sidenav-collapse-arrow"></div>
+
+
+											<a class="nav-link" href="${ pageContext.request.contextPath }/categories/list.do">카테고리</a>
+											<div class="sb-sidenav-collapse-arrow"></div>
 									
 									</nav>
 								</div>

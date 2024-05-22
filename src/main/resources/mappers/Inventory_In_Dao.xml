@@ -14,18 +14,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 상품등록 null:auto_increment -->
 	<insert id="insert" parameterType="inventory">
-		insert into inventory_in values (null, #{ name }, #{ cnt }, now())
+		insert into inventory_in values 
+		(null, #{ name }, #{ cnt }, now(),#{goods_idx})
 	</insert>
 	
 	<!-- 상품수정(수쟝/날짜 만) -->
 	<update id="update" parameterType="inventory">
 		update inventory_in set cnt = #{ cnt }, regdate=now()
-		where idx = #{ idx }
+		where inv_idx = #{inv_idx }
 	</update>
 	
 	<!-- 상품삭제 -->
 	<delete id="delete" parameterType="int">
-		delete from inventory_in where idx= #{ idx }
+		delete from inventory_in where inv_idx= #{inv_idx }
 	</delete>
 	
 	<!-- 입고삭제 -->

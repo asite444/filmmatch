@@ -71,7 +71,7 @@ public class InventoryServiceImpl implements InventoryService {
 	@Override
 	public int insert_out(InventoryVo vo) throws Exception {
 
-		System.out.println("실행!");
+		// System.out.println("실행!");
 		//1.출고등록
 		int res = inventory_out_dao.insert(vo);
 		//재고 상황을 체크하지 않아도 된다.
@@ -96,7 +96,7 @@ public class InventoryServiceImpl implements InventoryService {
 			res=inventory_remain_dao.update(remainVo);
 			}
 			else {  //재고가 0이 되는 경우
-			res=inventory_remain_dao.delete(remainVo.getIdx());	
+			res=inventory_remain_dao.delete(remainVo.getInv_idx());	
 			}
 		
 		return res;
@@ -138,7 +138,7 @@ public class InventoryServiceImpl implements InventoryService {
 		else  {//재고 수가 0이되는 경우
 		//해당 idx를 삭제	
 		System.out.println("0이다");
-		res= inventory_remain_dao.delete(remainVo.getIdx());
+		res= inventory_remain_dao.delete(remainVo.getInv_idx());
 		}
 		
 		return res;

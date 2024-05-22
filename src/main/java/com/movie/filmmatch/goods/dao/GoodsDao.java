@@ -29,6 +29,9 @@ public interface GoodsDao {
     /** 현재 검색된 굿즈 상품 수 */
     public int selectRowTotal(Map<String, Object> page_map);
 
+    /** 조회수증가 */
+    public int goodsHitsPlus(int goods_idx);
+
     
 
 }

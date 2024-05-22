@@ -67,6 +67,11 @@ public class GoodsServiceImpl implements GoodsService {
      */
     @Override
     public GoodsVo selectOne(int goods_idx) {
+
+        // 조회수증가
+        int res=goods_dao.goodsHitsPlus(goods_idx);
+
+
         GoodsVo vo=goods_dao.selectOne(goods_idx);
         return vo;
     }

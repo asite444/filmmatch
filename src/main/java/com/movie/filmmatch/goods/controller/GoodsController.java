@@ -251,6 +251,8 @@ public class GoodsController {
 
         InventoryVo InvenVo=new InventoryVo();
      
+        int goods_idx=vo.getGoods_idx();
+        
         InvenVo.setName(vo.getGoods_name());
         InvenVo.setCnt(vo.getGoods_quantity());
 
