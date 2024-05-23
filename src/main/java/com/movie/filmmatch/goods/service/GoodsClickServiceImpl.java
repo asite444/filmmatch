@@ -40,14 +40,12 @@ public class GoodsClickServiceImpl implements GoodsClickService {
         goodsClickVo.setGoods_name(goodsVo.getGoods_name());
         goodsClickVo.setCate_id(goodsVo.getCate_id());
         goodsClickVo.setGender(memberVo.getMem_gender());
-
         goodsClickVo.setAge_group(MemberUtils.getAgeGroup(memberVo.getMem_birth()));
-
         res=goods_clickDao.insert_goods_click(goodsClickVo);
 
 
       }else{
-
+        res=goods_clickDao.update_goods_click(map);
       }
 
 

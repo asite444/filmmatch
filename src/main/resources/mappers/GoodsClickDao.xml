@@ -33,6 +33,13 @@ VALUES (
   now(),
   1)
 </insert>
+<update id="update_goods_click" parameterType="map">
+UPDATE goodsclick 
+SET mem_click = mem_click +1 
+WHERE 
+mem_idx=#{mem_idx} and 
+goods_idx=#{goods_idx}
+</update>
 </mapper>
 
 
