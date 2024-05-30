@@ -11,10 +11,16 @@ import com.movie.filmmatch.goods.vo.GoodsClickVo;
 public interface GoodsClickDao {
 
     /**
-     * 리스트 조회
+     * 성별 리스트 조회
      * @return
      */
- public List<GoodsClickVo> selectList();
+ public List<GoodsClickVo> selectList_gender();
+ 
+    /**
+    * 연령대별 그룹 조회
+    * @return
+    */
+ public List<GoodsClickVo> selectList_age_group();
 
  /**
   * 같은 사용자  조회이력유무

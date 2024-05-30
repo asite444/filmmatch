@@ -4,8 +4,34 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.movie.filmmatch.goods.dao.GoodsClickDao">
 
-<select id="selectList" resultType="goodsClick">
-select * from goodsclick
+<!-- 성별조회 -->
+<select id="selectList_gender" resultType="goodsClick">
+SELECT goods_idx,goods_name,gender as clicker_info ,count(gender) as clicker_count
+FROM goodsclick
+group by goods_idx,goods_name,gender
+order by goods_idx
+</select>
+
+
+<!-- 나이대별조회 -->
+<select id="selectList_age_group" resultType="goodsClick">
+SELECT 
+    goods_idx,
+    goods_name,
+    CASE 
+        WHEN age_group = 0 THEN '어린이'
+        WHEN age_group = 10 THEN '10대'
+        WHEN age_group = 20 THEN '20대'
+        WHEN age_group = 30 THEN '30대'
+        WHEN age_group = 40 THEN '40대'
+        WHEN age_group = 50 THEN '50대'
+        WHEN age_group = 60 THEN '60대'
+        ELSE '기타'
+    END AS clicker_info,
+    count(age_group) AS clicker_count
+FROM goodsclick
+GROUP BY goods_idx, goods_name, clicker_info
+ORDER BY goods_idx
 </select>
 
 <!-- 같은 사용자  조회이력유무 -->

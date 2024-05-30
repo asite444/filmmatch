@@ -36,5 +36,7 @@ public class GoodsClickVo {
     private int age_group;       //나이별 
     private String click_timestamp; // 클릭시간대
     private int is_selling;         // 상품 판매중여부
+    private String clicker_info;    //그룹화 대상 정보
+    private int clicker_count;      //그룹별 카운트
 
 }

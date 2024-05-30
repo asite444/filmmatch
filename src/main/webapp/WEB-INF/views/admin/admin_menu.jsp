@@ -79,6 +79,9 @@
 
 											<a class="nav-link" href="${ pageContext.request.contextPath }/categories/list.do">카테고리</a>
 											<div class="sb-sidenav-collapse-arrow"></div>
+
+											<a class="nav-link" href="${ pageContext.request.contextPath }/goodsclick/list.do">상품 조회수 통계</a>
+											<div class="sb-sidenav-collapse-arrow"></div>
 									
 									</nav>
 								</div>

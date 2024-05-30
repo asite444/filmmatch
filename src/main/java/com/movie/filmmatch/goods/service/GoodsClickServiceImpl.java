@@ -1,6 +1,7 @@
 package com.movie.filmmatch.goods.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,22 @@ public class GoodsClickServiceImpl implements GoodsClickService {
 
     @Autowired
     GoodsClickDao goods_clickDao;
+
+
+    @Override
+    public Map<String,List<GoodsClickVo>> select_list() {
+      
+      Map<String,List<GoodsClickVo>> map=new HashMap<String,List<GoodsClickVo>>();
+
+      List<GoodsClickVo> gender_list =goods_clickDao.selectList_gender();
+      List<GoodsClickVo> age_group_list =goods_clickDao.selectList_age_group();
+      map.put("age_group_list", age_group_list);
+      map.put("gender_list", gender_list);
+      
+
+
+      return map;
+    }
 
     /**
      * 상품 조회자 정보 저장
@@ -52,5 +69,7 @@ public class GoodsClickServiceImpl implements GoodsClickService {
 
        return res;
     }
+
+   
 
 }
