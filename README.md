@@ -1,4 +1,11 @@
-team5_v2sbm3c_git
+FiLMMatch
+open API기반 영화추천사이트
+
+URL: https://donghyun.store/index.do
+관리자 계정: admin
+pwd:1234
+
+
 1) Project Subject
 MySQL 기반 모델링을 토대로 Spring Boot 기반 동작하는 OpenApI를 활용한 영화 추천 및 굿즈 판매 Website를 제작한다.
 
