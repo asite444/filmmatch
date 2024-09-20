@@ -1,5 +1,6 @@
 package com.movie.filmmatch.member.service;
 
+import java.util.List;
 import java.util.Properties;
 import java.util.Random;
 
@@ -63,6 +64,17 @@ public class EmailService {
        
     }
 
+
+    /**
+     * 이메일 서비스객체
+     * @return
+     */
+    public List<String> searchEmail(){
+
+        
+
+        return null;
+    }
 
 
 

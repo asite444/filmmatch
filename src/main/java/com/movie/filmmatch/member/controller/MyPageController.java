@@ -55,6 +55,7 @@ public class MyPageController{
 	@RequestMapping("/mypage_form.do")
 	public String mypage() {
 
+		
 		return "member/mypage_form";
 
 	}
